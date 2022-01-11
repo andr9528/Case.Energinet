@@ -1,0 +1,14 @@
+Baggrund:
+•	 Energinets Kontrolcenter-system har behov for at kende de aktuelle valutakurser, da dette er betydende for omkostningen ifm. køb af energi fra udlandet
+•	 Der skal etableres en integration fra Nationalbankens Valuta service (REST API) ind til kontrol centerets it-system (SCADA løsning).
+Spørgsmål:
+•	Hvilke funktionelle krav er væsentlige at afdække
+•	Hvad vil du overveje ift. integrationens non-funktionelle krav?
+•	Vi arbejder ud fra en agil tilgang, baseret på MVP (Minimum Viable Products).
+•	Hvordan kunne denne integration etableres ud fra en MVP tilgang?
+•	Altså – hvad kunne et MVP være i første sprint (Prototype), og hvad kunne næste ‘version’ være
+•	Hvilke væsentlige design patterns kunne være relevante at tænke ind?
+•	Andet?
+
+
+ - 

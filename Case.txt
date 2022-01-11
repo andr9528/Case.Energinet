@@ -1,0 +1,19 @@
+Baggrund:
+•	 Energinets Kontrolcenter-system har behov for at kende de aktuelle valutakurser, da dette er betydende for omkostningen ifm. køb af energi fra udlandet
+•	 Der skal etableres en integration fra Nationalbankens Valuta service (REST API) ind til kontrol centerets it-system (SCADA løsning).
+Spørgsmål:
+•	Hvilke funktionelle krav er væsentlige at afdække
+•	Hvad vil du overveje ift. integrationens non-funktionelle krav?
+•	Vi arbejder ud fra en agil tilgang, baseret på MVP (Minimum Viable Products).
+•	Hvordan kunne denne integration etableres ud fra en MVP tilgang?
+•	Altså – hvad kunne et MVP være i første sprint (Prototype), og hvad kunne næste ‘version’ være
+•	Hvilke væsentlige design patterns kunne være relevante at tænke ind?
+•	Andet?
+
+
+ - Hvilke funktionelle krav er væsentlige at afdække?
+	- Anmodning til https://www.nationalbanken.dk/valutakurser for de relevante kurser
+	
+ - Hvad vil du overveje ift. integrationens non-funktionelle krav?
+	- Forminsk antal af anmodninger. Da kursen inde på Nationalbanken kun opdateres 1 gang om dagen, nytter det ikke noget at sende mere end en anmodning om dagen, derefter skal en cached udgave anvendes.
+		- Øger programmets ydeevne, da (mange) færre HTTPS anmodninger skal foretages.

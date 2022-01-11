@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Case.Energinet.Persistence\Case.Energinet.Persistence.csproj" />
+    <ProjectReference Include="..\Case.Energinet.Proxies\Case.Energinet.Proxies.csproj" />
+    <ProjectReference Include="..\Wolf.Utility.Core\Wolf.Utility.Core.Logging\Wolf.Utility.Core.Logging.csproj" />
+    <ProjectReference Include="..\Wolf.Utility.Core\Wolf.Utility.Core.Persistence\Wolf.Utility.Core.Persistence.csproj" />
+    <ProjectReference Include="..\Wolf.Utility.Core\Wolf.Utility.Core.Wpf\Wolf.Utility.Core.Wpf.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

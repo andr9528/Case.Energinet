@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.ServiceModel.Syndication" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Case.Energinet.Core\Case.Energinet.Core.csproj" />
+    <ProjectReference Include="..\Wolf.Utility.Core\Wolf.Utility.Core.Extensions\Wolf.Utility.Core.Extensions.csproj" />
+    <ProjectReference Include="..\Wolf.Utility.Core\Wolf.Utility.Core.Logging\Wolf.Utility.Core.Logging.csproj" />
+  </ItemGroup>
+
+</Project>

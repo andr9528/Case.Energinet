@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Enums\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Wolf.Utility.Core\Wolf.Utility.Core.Persistence\Wolf.Utility.Core.Persistence.csproj" />
+    <ProjectReference Include="..\Wolf.Utility.Core\Wolf.Utility.Core.Wpf.Core\Wolf.Utility.Core.Wpf.Core.csproj" />
+  </ItemGroup>
+
+</Project>
