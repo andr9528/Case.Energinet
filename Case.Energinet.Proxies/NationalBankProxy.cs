@@ -1,6 +1,7 @@
 ﻿
 
 using Case.Energinet.Core.Models;
+using Case.Energinet.Core.Proxies;
 
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ using Wolf.Utility.Core.Logging;
 namespace Case.Energinet.Proxies
 {
     // Followed: https://docs.microsoft.com/en-us/windows/communitytoolkit/parsers/rssparser
-    public class NationalBankProxy
+    public class NationalBankProxy : INationalBankProxy
     {
         private const string NationalBank = "https://www.nationalbanken.dk/_vti_bin/DN/DataService.svc/CurrencyRateRSS?lang=da&iso=";
         private readonly ILoggerManager logger;
@@ -77,6 +78,7 @@ namespace Case.Energinet.Proxies
                     else logger?.LogDebug($"Failed to parse '{item.Title.Text}' into a double");
 
                     cache.Rate = rate;
+                    cache.PublishDate = item.PublishDate.ToLocalTime().DateTime;
                     cache.Description = $"100 {cache.ISOCode} koster {cache.Rate} DKK.";
                 }
             }

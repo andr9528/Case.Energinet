@@ -32,6 +32,7 @@ namespace Case.Energinet.Frontend.Wpf
         private void OnStartup(object sender, StartupEventArgs e)
         {
             var mainWindow = StartupConfig.ServiceProvider.GetService<MainWindow>();
+            mainWindow.Init();
             mainWindow.Show();
         }
 

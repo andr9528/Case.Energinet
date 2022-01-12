@@ -3,12 +3,57 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Case.Energinet.Frontend.Wpf.Pages"
+      xmlns:local="clr-namespace:Case.Energinet.Frontend.Wpf.Pages" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SettingsPage">
 
-    <Grid>
-        
+    <Grid Background="#FF719E93" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Should burger menu start shown?" 
+                   VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Margin="16" TextWrapping="WrapWithOverflow"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Where should the burger menu be?" 
+                   VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Margin="16" TextWrapping="WrapWithOverflow"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="At what age should an Exchange rate auto-update on startup?" 
+                   VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Margin="16" TextWrapping="WrapWithOverflow"/>
+
+        <CheckBox  Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Checked="CheckBoxStartHidden_Checked"
+                   HorizontalAlignment="Center" FontSize="20" x:Name="CheckBoxStartHidden">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="3" ScaleY="3" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
+        <ComboBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                  x:Name="ComboBoxBurgerLocation" SelectionChanged="ComboBoxBurgerLocation_SelectionChanged">
+            <ComboBox.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2" />
+            </ComboBox.LayoutTransform>
+        </ComboBox>
+
+        <xctk:TimeSpanUpDown Grid.Row="2" Grid.Column="1" Minimum="00:00" ValueChanged="TimeSpanMaxAgePicker_ValueChanged"
+                             VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="TimeSpanMaxAgePicker">
+            <xctk:TimeSpanUpDown.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2" />
+            </xctk:TimeSpanUpDown.LayoutTransform>
+        </xctk:TimeSpanUpDown>
+
+        <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="ButtonSave" Click="ButtonSave_Click" Content="Save">
+            <Button.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2" />
+            </Button.LayoutTransform>
+        </Button>
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="..." x:Name="TextBlockSave"
+                   VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Margin="16" TextWrapping="WrapWithOverflow"/>
     </Grid>
 </Page>

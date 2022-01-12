@@ -23,8 +23,15 @@ namespace Case.Energinet.Persistence
         {
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.ApplyConfiguration(new CachedRateConfig());
             modelBuilder.ApplyConfiguration(new ConfigConfig());
         }

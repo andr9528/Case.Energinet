@@ -1,4 +1,5 @@
 ﻿using Case.Energinet.Core.Models;
+using Case.Energinet.Core.Proxies;
 
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Wolf.Utility.Core.Extensions.Money.Enums;
+using Wolf.Utility.Core.Persistence.EntityFramework.Core;
 
 namespace Case.Energinet.Persistence.Models
 {
@@ -19,5 +21,6 @@ namespace Case.Energinet.Persistence.Models
         public byte[] Version { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
+        public DateTime PublishDate { get; set; }        
     }
 }

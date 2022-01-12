@@ -55,6 +55,8 @@ namespace Case.Energinet.Persistence
 
         private async Task<IQueryable<Models.Config>> BuildQuery(IConfig c, IQueryable<Models.Config> query)
         {
+            query = query.Where(x => x.Id == 1);
+
             return query;
         }
     }
