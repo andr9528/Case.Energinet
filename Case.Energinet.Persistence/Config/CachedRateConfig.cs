@@ -22,7 +22,7 @@ namespace Case.Energinet.Persistence.Config
         {
             base.Configure(builder);
 
-
+            builder.HasIndex(x=>x.ISOCode).IsUnique();
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Case.Energinet.Persistence
 
         private async Task<IQueryable<CachedRate>> BuildQuery(ICachedRate c, IQueryable<CachedRate> query)
         {
-            if (c.ISOCode != CurrencyCodes.NULL)
+            if (c.ISOCode != default)
                 query = query.Where(x=>x.ISOCode == c.ISOCode);
 
             if (c.Rate != default)

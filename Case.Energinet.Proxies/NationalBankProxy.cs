@@ -54,18 +54,18 @@ namespace Case.Energinet.Proxies
 
             if (feed != null) 
             {
-#if DEBUG
-                var count = 1;
-                foreach (var syndicationItem in feed.Items)
-                {
-                    logger?.LogDebug($"Item nr. {count}:");
-                    logger?.LogDebug($"Title -> {syndicationItem.Title.Text}");
-                    logger?.LogDebug($"Content -> {syndicationItem.Content.Type}");
-                    logger?.LogDebug($"PublishDate -> {syndicationItem.PublishDate}");
-                    logger?.LogDebug($"LastUpdatedTime -> {syndicationItem.LastUpdatedTime}");
-                    count++;
-                }
-#endif
+//#if DEBUG
+//                var count = 1;
+//                foreach (var syndicationItem in feed.Items)
+//                {
+//                    logger?.LogDebug($"Item nr. {count}:");
+//                    logger?.LogDebug($"Title -> {syndicationItem.Title.Text}");
+//                    logger?.LogDebug($"Content -> {syndicationItem.Content.Type}");
+//                    logger?.LogDebug($"PublishDate -> {syndicationItem.PublishDate}");
+//                    logger?.LogDebug($"LastUpdatedTime -> {syndicationItem.LastUpdatedTime}");
+//                    count++;
+//                }
+//#endif
 
                 var item = feed.Items.FirstOrDefault();
 

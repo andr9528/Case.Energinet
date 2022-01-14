@@ -5,10 +5,150 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Case.Energinet.Frontend.Wpf.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="800"
       Title="ExchangeRatesCalculatorPage">
 
-    <Grid>
-        
+    <Grid Background="#FF7D79F9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="40*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                   Text="Indhent kurs for:" FontSize="32" TextAlignment="Center"/>
+        <ComboBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="ComboBoxISO"/>
+        <Button Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                Content="Indhent" x:Name="ButtonCollect" Click="ButtonCollect_Click">
+            <Button.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2" />
+            </Button.LayoutTransform>
+        </Button>
+<!--#region -->
+        <!--ItemsSource="{Binding Path=UpdatedRates}"--> 
+<!--#endregion-->
+        <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="30,5,30,5" CanUserAddRows="False" IsReadOnly="True"
+                  SelectionMode="Single" SelectionUnit="FullRow" CanUserDeleteRows="False" SelectedIndex="0"
+                  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" x:Name="DataGridRates" SelectionChanged="DataGridRates_SelectionChanged"></DataGrid>
+
+        <!--#region Numberpad-->
+        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="20*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="20*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="TextBlockInput" 
+                   Margin="30,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left"
+                   FontSize="32" TextAlignment="Center"/>
+            <TextBlock Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                   Text="=" FontSize="32" TextAlignment="Center"/>
+            <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" x:Name="TextBlockOutput" 
+                   Margin="0,0,30,0" VerticalAlignment="Center" HorizontalAlignment="Right"
+                   FontSize="32" TextAlignment="Center"/>
+
+            <!--#region Buttons-->
+            <Button Content="  7  " x:Name="Button7" Grid.Column="0" Grid.Row="1" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button7_Click">
+                <Button.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </Button.LayoutTransform>
+            </Button>
+            <Button Content="  8  " x:Name="Button8" Grid.Column="1" Grid.Row="1" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button8_Click">
+                <Button.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </Button.LayoutTransform>
+            </Button>
+            <Button Content="  9  " x:Name="Button9" Grid.Column="2" Grid.Row="1" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button9_Click">
+                <Button.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </Button.LayoutTransform>
+            </Button>
+            <Button Content="  4  " x:Name="Button4" Grid.Column="0" Grid.Row="2" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button4_Click">
+                <Button.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </Button.LayoutTransform>
+            </Button>
+            <Button Content="  5  " x:Name="Button5" Grid.Column="1" Grid.Row="2" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button5_Click">
+                <Button.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </Button.LayoutTransform>
+            </Button>
+            <Button Content="  6  " x:Name="Button6" Grid.Column="2" Grid.Row="2" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button6_Click">
+                <Button.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </Button.LayoutTransform>
+            </Button>
+            <Button Content="  1  " x:Name="Button1" Grid.Column="0" Grid.Row="3" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button1_Click">
+                <Button.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </Button.LayoutTransform>
+            </Button>
+            <Button Content="  2  " x:Name="Button2" Grid.Column="1" Grid.Row="3" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button2_Click">
+                <Button.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </Button.LayoutTransform>
+            </Button>
+            <Button Content="  3  " x:Name="Button3" Grid.Column="2" Grid.Row="3" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button3_Click">
+                <Button.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </Button.LayoutTransform>
+            </Button>
+            <Button Content="  .  " x:Name="ButtonDecimal" Grid.Column="0" Grid.Row="4" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonDecimal_Click">
+                <Button.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </Button.LayoutTransform>
+            </Button>
+            <Button Content="  0  " x:Name="Button0" Grid.Column="1" Grid.Row="4" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button0_Click">
+                <Button.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </Button.LayoutTransform>
+            </Button>
+            <Button Content="  =  " x:Name="ButtonEqual" Grid.Column="2" Grid.Row="4" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonEqual_Click">
+                <Button.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </Button.LayoutTransform>
+            </Button>
+            <Button Content="  Slet  " x:Name="ButtonDelete" Grid.Column="3" Grid.Row="3" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonDelete_Click">
+                <Button.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </Button.LayoutTransform>
+            </Button>
+            <Button Content="  Ryd  " x:Name="ButtonClear" Grid.Column="3" Grid.Row="4" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonClear_Click">
+                <Button.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </Button.LayoutTransform>
+            </Button>
+            <!--#endregion-->
+            
+        </Grid>
+<!--#endregion-->
+
     </Grid>
 </Page>
