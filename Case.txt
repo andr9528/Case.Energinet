@@ -12,8 +12,37 @@ Spørgsmål:
 
 
  - Hvilke funktionelle krav er væsentlige at afdække?
-	- Anmodning til https://www.nationalbanken.dk/valutakurser for de relevante kurser
+	- Anmodning til https://www.nationalbanken.dk/valutakurser for de relevante kurser.
+	- Omregning af Valuta A til Valuta B.
 	
  - Hvad vil du overveje ift. integrationens non-funktionelle krav?
 	- Forminsk antal af anmodninger. Da kursen inde på Nationalbanken kun opdateres 1 gang om dagen, nytter det ikke noget at sende mere end en anmodning om dagen, derefter skal en cached udgave anvendes.
-		- Øger programmets ydeevne, da (mange) færre HTTPS anmodninger skal foretages.
+		- Øger programmets ydeevne, da (mange) færre HTTP anmodninger skal foretages.
+
+- Hvordan kunne denne integration etableres ud fra en MVP tilgang?
+	- (MVP) Nedhent kurser og anvend dem til en valuta omregner, der manuelt kan bruges til at omregne fra DKK til anden valuta og omvendt.
+	- (MVP+) Anvend nedhentede kurser til automatisk om konvertering mellem relevante kurser, for faste priser i det eksiterende system.
+
+- Hvilke væsentlige design patterns kunne være relevante at tænke ind?
+	- Proxy
+		- Samler kode der inteagere med externe resources. Externe betyder i dette tilfælde kode og/eller resourcer der forbindes til via Internettet.
+		- Se 'NationalBankProxy' i 'Case.Energinet.Proxies'
+	- MVC
+		- Danner en strukture på koden der er nemere at overskue. 
+		- Som kan ses anvender jeg MVC. 
+			- Jeg har Modeller under mapper kaldet 'Models'.
+			- Mine 'Views' er i form af sider i mappen 'Pages'.
+			- Tilslut er 'Controller' erstattet af mine Proxy klasser i det tilsvarende bibliotet, da Proxy klasser står i stedet for.
+	- Dependency Injection
+		- Sænker manuelt skabelsen af klasser. "Depend on abstractions, not on concretions" - Dependency Inversion Principle
+		- Se 'Startup' i 'Case.Energinet.Frontend.Wpf'
+	- Facade
+		- Simplificere inteaction med komplex kode, ved kald til simplificere metoder.
+			- Se 'EnerginetHandler' i 'Case.Energinet.Persistence'
+
+- Andet?
+	- 'Case.Energinet' Understøtter så vidt jeg ved DRY og SOLID.
+		- 'Don't Repeat Yourself'
+		- 'Single-Responsibility, Open–Closed, Liskov Substitution, Interface Segregation, Dependency Inversion'
+
+

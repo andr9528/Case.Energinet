@@ -76,7 +76,7 @@ namespace Case.Energinet.Frontend.Wpf
                 var calculatorLogger = App.StartupConfig.ServiceProvider.GetService<ILoggerManager>();
                 configNotNull = config != null ? true : false;
 
-                var calculatorPage = new ExchangeRatesCalculatorPage(calculatorLogger, handler, proxy, config, configNotNull);
+                var calculatorPage = new ExchangeRatesCalculatorPage(calculatorLogger, handler, proxy, config, configNotNull, this);
                 calculatorPage.Init();
                 var calculatorInfo = new NavigationInfo(calculatorPage);
                 pages.Add(calculatorInfo);
